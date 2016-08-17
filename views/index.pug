@@ -4,20 +4,40 @@ block content
   h1= title
   p Welcome to #{title}
 
-  form#plain-text(action="convert/plainText", method=POST)
-    formset
-      label(for="csv-text")="Plain Text"
-      textarea(name="csv-text")
-    button(type="submit")="Convert Plain Text"
+  section#convert-option
+    h2="Choose a conversion option"
 
-  form#url-text(action="convert/urlText", method=POST)
-    formset
-      label(for="url-text")="From URL"
-      input(type="text", name="url-text")
-    button(type="submit")="Convert From URL"
+    label.clickable(for="show-plain")
+      h2="Plain Text"
+    input#show-plain.visuallyhidden(type="checkbox")
 
-  form#file-upload(action="convert/fileUpload", method=POST)
-    formset
-      label(for="csv-file")="File Upload"
-      input(type="file", name="csv-file")
-    button(type="submit")="Convert from File"
+    form#plain-text(action="convert/plainText", method=POST)
+      formset
+        label.visuallyhidden(for="csv-text")="Plain Text"
+        textarea#csv-text(name="csv-text")
+      button(type="submit")="Convert Plain Text"
+
+    label.clickable(for="show-remote")
+      h2="URL"
+    input#show-remote.visuallyhidden(type="checkbox")
+
+    form#remote(action="convert/remote", method=POST)
+      formset
+        label.visuallyhidden(for="url-text")="From URL"
+        input#url-text(type="text", name="url-text")
+      button(type="submit")="Convert From URL"
+
+    label.clickable(for="show-file")
+      h2="File Upload"
+    input#show-file.visuallyhidden(type="checkbox")
+
+    form#file-upload(action="convert/fileUpload", method=POST)
+      formset
+        label.visuallyhidden(for="csv-file")="File Upload"
+        input#csv-file(type="file", name="csv-file")
+      button(type="submit")="Convert from File"
+
+  section#result
+    h2="Result"
+    div.code
+      code="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

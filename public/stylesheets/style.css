@@ -1,1 +1,55 @@
 @import "normalize.css";
+body {
+  max-width: 50em;
+  margin: 0 auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  color: #333;
+}
+form {
+  display: none;
+  margin-bottom: 20px;
+}
+formset {
+  display: block;
+}
+input {
+  margin-bottom: 10px;
+}
+label {
+  display: block;
+}
+textarea,
+input[type="text"] {
+  font-family: monospace;
+}
+#show-plain:checked ~ #plain-text {
+  display: block;
+}
+#show-remote:checked ~ #remote {
+  display: block;
+}
+#show-file:checked ~ #file-upload {
+  display: block;
+}
+.code {
+  background: #eee;
+  font-size: 0.8em;
+  line-height: 1em;
+  padding: 1rem;
+}
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+.clickable {
+  background: #eee;
+  cursor: pointer;
+}
