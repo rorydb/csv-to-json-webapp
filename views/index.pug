@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form#plain-text(action="convert/plainText", method=POST)
+    formset
+      label(for="csv-text")="Plain Text"
+      textarea(name="csv-text")
+    button(type="submit")="Convert Plain Text"
+
+  form#url-text(action="convert/urlText", method=POST)
+    formset
+      label(for="url-text")="From URL"
+      input(type="text", name="url-text")
+    button(type="submit")="Convert From URL"
+
+  form#file-upload(action="convert/fileUpload", method=POST)
+    formset
+      label(for="csv-file")="File Upload"
+      input(type="file", name="csv-file")
+    button(type="submit")="Convert from File"
