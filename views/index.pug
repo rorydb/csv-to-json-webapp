@@ -8,7 +8,7 @@ block content
     h2="Choose a conversion option"
 
     label.clickable(for="show-plain")
-      h2="Plain Text"
+      h3="Plain Text"
     input#show-plain.visuallyhidden(type="checkbox")
 
     form#plain-text(action="convert/plainText", method=POST)
@@ -18,7 +18,7 @@ block content
       button(type="submit")="Convert Plain Text"
 
     label.clickable(for="show-remote")
-      h2="URL"
+      h3="URL"
     input#show-remote.visuallyhidden(type="checkbox")
 
     form#remote(action="convert/remote", method=POST)
@@ -28,7 +28,7 @@ block content
       button(type="submit")="Convert From URL"
 
     label.clickable(for="show-file")
-      h2="File Upload"
+      h3="File Upload"
     input#show-file.visuallyhidden(type="checkbox")
 
     form#file-upload(action="convert/fileUpload", method=POST)

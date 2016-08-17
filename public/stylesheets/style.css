@@ -19,10 +19,17 @@ input {
 }
 label {
   display: block;
+  text-align: center;
 }
 textarea,
 input[type="text"] {
   font-family: monospace;
+}
+textarea {
+  width: 50%;
+  line-height: 1em;
+  font-size: 0.8em;
+  min-height: 200px;
 }
 #show-plain:checked ~ #plain-text {
   display: block;

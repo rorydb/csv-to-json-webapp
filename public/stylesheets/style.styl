@@ -22,11 +22,17 @@ input
 
 label
     display: block
+    text-align: center
 
 textarea, input[type="text"]
     font-family: monospace
 
-
+textarea
+    width: 50%
+    line-height: 1em
+    font-size: 0.8em;
+    min-height: 200px;
+    
 // Hide and Show Forms
 #show-plain:checked
     & ~ #plain-text
@@ -39,8 +45,6 @@ textarea, input[type="text"]
 #show-file:checked
     & ~ #file-upload
         display: block
-
-
 
 .code
     background: #eee
