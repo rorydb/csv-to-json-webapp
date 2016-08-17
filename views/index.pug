@@ -2,7 +2,6 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
 
   section#convert-option
     h2="Choose a conversion option"
@@ -11,7 +10,7 @@ block content
       h3="Plain Text"
     input#show-plain.visuallyhidden(type="checkbox")
 
-    form#plain-text(action="convert/plainText", method=POST)
+    form#plain-text(action="convert/plainText", method="POST")
       formset
         label.visuallyhidden(for="csv-text")="Plain Text"
         textarea#csv-text(name="csv-text")
@@ -21,7 +20,7 @@ block content
       h3="URL"
     input#show-remote.visuallyhidden(type="checkbox")
 
-    form#remote(action="convert/remote", method=POST)
+    form#remote(action="convert/remote", method="POST")
       formset
         label.visuallyhidden(for="url-text")="From URL"
         input#url-text(type="text", name="url-text")
@@ -29,9 +28,11 @@ block content
 
     label.clickable(for="show-file")
       h3="File Upload"
+        span &nbsp;
+        small="(5MB max)"
     input#show-file.visuallyhidden(type="checkbox")
 
-    form#file-upload(action="convert/fileUpload", method=POST)
+    form#file-upload(action="convert/fileUpload", method="POST", enc-type="multipart/form-data")
       formset
         label.visuallyhidden(for="csv-file")="File Upload"
         input#csv-file(type="file", name="csv-file")
@@ -40,4 +41,4 @@ block content
   section#result
     h2="Result"
     div.code
-      code="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      code
