@@ -1,24 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var multer = require('multer');
-
-var destination = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/uploads/csv');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now())
-    }
-  }),
-})
-.single("csv");
-
 var Converter = require("csvtojson").Converter;
+var busboy = require('connect-busboy');
+var fs = require('fs');
+
+router.use(busboy({ immediate: true }));
 
 /* POST Remote URL */
-router.post('/', destination, function(req, res, next) {
+router.post('/', function(req, res, next) {
+    var savedFilePath = '';
 
+    req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        var path = './public/uploads/csv/' + Date.now() + ' - ' + filename;
+        file.pipe(fs.createWriteStream(path));
+
+        savedFilePath = path;
+    });
+
+    req.busboy.on('finish', function() {
+        var csvtojson = new Converter({});
+        
+        csvtojson.fromFile(savedFilePath, function(err, result) {
+            res.send(JSON.stringify(result));
+        });
+    })
 });
 
 module.exports = router;

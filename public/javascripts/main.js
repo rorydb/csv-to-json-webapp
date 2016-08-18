@@ -46,6 +46,6 @@ function submitFile(e) {
 }
 
 $(document).ready( function() {
-    $('form#plain-text, for#remote').submit(submitForm);
+    $('form#plain-text, form#remote').submit(submitForm);
     $('form#file-upload').submit(submitFile);
 });
