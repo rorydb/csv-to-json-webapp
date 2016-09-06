@@ -22,6 +22,8 @@ router.post('/', function(req, res, next) {
         
         csvtojson.fromFile(savedFilePath, function(err, result) {
             res.send(JSON.stringify(result));
+
+            fs.unlink(savedFilePath);
         });
     })
 });
